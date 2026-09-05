@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.turbo/
+*.tsbuildinfo
+.env
+.env.local
+.env.*.local
+
+# Crash dumps
+*.stackdump
+
+.claude/worktrees/
+
+# Claude Code user-local settings
+.claude/settings.local.json

@@ -1,0 +1,14 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "jsx": "react-native",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "paths": {
+      "@app/core": ["../core/src/index.ts"],
+      "@app/core/*": ["../core/src/*"]
+    }
+  },
+  "include": ["src"]
+}

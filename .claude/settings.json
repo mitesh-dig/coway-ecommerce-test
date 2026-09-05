@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "agentic-dev-kit": {
+      "source": {
+        "source": "github",
+        "repo": "k-t18/agentic-dev-kit"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "agentic-dev-kit@agentic-dev-kit": true
+  }
+}

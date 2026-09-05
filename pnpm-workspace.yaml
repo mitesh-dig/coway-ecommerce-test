@@ -1,0 +1,38 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+allowBuilds:
+  esbuild: false
+  sharp: false
+  sqlite3: false
+
+# react-native-sqlite-2 → websql → sqlite3 (a Node native addon). pnpm blocks
+# its build script by default. The React Native app never loads Node's sqlite3
+# (it uses react-native-sqlite-2's native Android SQLite module), so we
+# explicitly acknowledge skipping the build. Without this, `pnpm install` exits
+# 1 and pnpm v11's verify-deps-before-run aborts `pnpm start` / `pnpm android`.
+#
+# esbuild (Vitest's transform engine): its postinstall only links the platform
+# binary, which pnpm already installs as the optional @esbuild/win32-x64 package
+# and esbuild resolves at runtime — so the build script is a no-op for us and
+# Vitest runs fine without it. Acknowledged-skipped for the same exit-0 reason.
+#
+# sharp (Next.js optional image optimizer): only used at runtime for next/image
+# optimization, which this template doesn't use. Next dev/build run fine without
+# it, so we skip its native build for the same install-exit-0 reason.
+ignoredBuiltDependencies:
+  - sqlite3
+  - esbuild
+  - sharp
+
+# Force a single React + React Native across the monorepo. The native app
+# binary is built on RN 0.85.3, whose bundled react-native-renderer is pinned
+# to react 19.2.3 — react MUST match exactly, and react-dom must match react.
+# Without this, ui-native/core peer-resolve mismatched versions, causing a
+# duplicate RN ("DeviceInfo could not be found") or a renderer version clash
+# ("react and react-native-renderer must have the exact same version").
+overrides:
+  react: "19.2.3"
+  react-dom: "19.2.3"
+  react-native: "0.85.3"

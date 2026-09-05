@@ -1,0 +1,6 @@
+module.exports = {
+  assets: [
+    './assets/fonts/',
+    '../../node_modules/.pnpm/react-native-vector-icons@10.3.0/node_modules/react-native-vector-icons/Fonts',
+  ],
+};
