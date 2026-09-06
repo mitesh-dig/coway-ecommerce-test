@@ -1,15 +1,13 @@
 {
-  "mcpServers": {
-    "figma": {
-      "type": "sse",
-      "url": "http://127.0.0.1:3845/sse"
-    },
+  "servers": {
     "codegraph": {
       "type": "stdio",
       "command": "codegraph",
       "args": [
         "serve",
-        "--mcp"
+        "--mcp",
+        "--path",
+        "C:\\Users\\MITESH\\OneDrive\\Desktop\\coway-ecommerce-test"
       ]
     }
   }
