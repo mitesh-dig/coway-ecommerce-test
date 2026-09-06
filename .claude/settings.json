@@ -9,5 +9,22 @@
   },
   "enabledPlugins": {
     "agentic-dev-kit@agentic-dev-kit": true
+  },
+  "permissions": {
+    "allow": [
+      "mcp__codegraph__*"
+    ]
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "codegraph.cmd prompt-hook"
+          }
+        ]
+      }
+    ]
   }
 }

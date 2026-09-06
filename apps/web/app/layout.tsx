@@ -6,7 +6,7 @@ import './globals.css';
 // global stylesheet, then hands the tree to the client-side Providers boundary.
 // `setup.mjs` personalizes the title below at template-init time.
 export const metadata: Metadata = {
-  title: 'Reactant',
+  title: 'Coway Ecommerce',
   description: 'The offline-first web + native starter on a Frappe backend.',
   icons: { icon: '/favicon.svg' },
 };
